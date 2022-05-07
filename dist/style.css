@@ -70,7 +70,16 @@ span:hover {
   min-height: 20px;
   align-items: center;
   border-radius: 10px;
+  transition: 1s;
 }
+
+/*.search-box input:active {
+  min-width: 350px;
+}
+
+.search-box input:focus {
+  min-width: 350px;
+}*/
 
 .search-box .search-icon {
   margin-left: 10px;
@@ -551,7 +560,7 @@ span:hover {
 
 .recommend {
   display: flex;
-  justify-content: end;
+  justify-content: start;
   font-size: 0.8em;
   margin-bottom: 10px;
 }
@@ -613,7 +622,7 @@ span:hover {
 
 .promote-item {
   display: flex;
-  justify-content: end;
+  justify-content: start;
   font-size: 0.8em;
   margin-bottom: 10px;
 }
@@ -690,11 +699,66 @@ span:hover {
   }
 }
 
+.chat-box {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  border-radius: 10px 10px 0 0;
+  border: 1px var(--borderColor) solid;
+}
+
+.online-dot-container {
+  position: relative;
+}
+
+.online-dot {
+  width: 15px;
+  height: 15px;
+  background-color: green;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 10px;
+  left: 10%;
+  border: 2px white solid;
+}
+
+.chat-box div {
+  display: flex;
+  align-items: center;
+}
+
+.chat-box div span {
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+
+.chat-box img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 768px) {
+  /**.search-box input:active ~ .nav-menu {
+    color: red;
+  }
+
+  .search-box input:focus ~ .nav-menu {
+    color: red;
+  }**/
+
   .main-menu ul {
     align-items: center;
     min-height: 100%;
   }
+
   .main-menu ul li a p {
     display: none;
   }
@@ -712,10 +776,27 @@ span:hover {
   }
 
   .sub-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    transform: translateX(10px);
+    background: #fff;
     display: none;
+    border: 1px var(--borderColor) solid;
+    border-radius: 10px;
+  }
+
+  .sub-menu.active {
+    display: block;
   }
 
   .main-menu {
     border: 0;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .main-menu ul li {
+    padding: 5px;
   }
 }
